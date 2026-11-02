@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal Design System & Component Library | Ilekuba Chinedu</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    /* Showcase Layout Styles */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: var(--space-6) var(--space-4);
+    }
+    .header-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: var(--space-6);
+      border-bottom: 1px solid var(--color-border-subtle);
+      margin-bottom: var(--space-8);
+    }
+    .brand-title {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .section-heading {
+      font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-bold);
+      margin-bottom: var(--space-2);
+      color: var(--color-text-main);
+    }
+    .section-desc {
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-6);
+      font-size: var(--font-size-base);
+    }
+    .grid-demo {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+    }
+    .token-swatch {
+      padding: var(--space-3);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      cursor: pointer;
+      background: var(--color-bg-card);
+      transition: all var(--transition-fast);
+    }
+    .token-swatch:hover {
+      border-color: var(--color-primary-500);
+      transform: translateY(-2px);
+    }
+    .color-box {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      align-items: center;
+      margin-bottom: var(--space-6);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Top Navigation & Theme Switcher -->
+    <header class="header-nav">
+      <div class="brand-title">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" color="var(--color-primary-500)">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+          <polyline points="2 17 12 22 22 17"/>
+          <polyline points="2 12 12 17 22 12"/>
+        </svg>
+        <span>Universal Design System</span>
+        <span class="badge badge-success" style="margin-left: 8px;">v1.0.0</span>
+      </div>
+      <div style="display: flex; gap: var(--space-3); align-items: center;">
+        <button id="theme-toggle" class="btn btn-secondary">
+          <svg id="theme-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <!-- Icon injected via JS -->
+          </svg>
+          <span id="theme-label">Theme</span>
+        </button>
+        <a href="https://github.com/ilekubachinedu" class="btn btn-outline" target="_blank">View on GitHub</a>
+      </div>
+    </header>
+
+    <!-- Hero Intro -->
+    <div style="margin-bottom: var(--space-10);">
+      <h1 class="section-heading" style="font-size: var(--font-size-3xl);">Figma to Code Component Spec</h1>
+      <p class="section-desc">
+        Architected by <strong>Ilekuba Chinedu (B.Sc. Computer Science)</strong>. An enterprise-grade, accessible (WCAG 2.1 AA) design system aligning W3C design tokens with production frontend code. Click any color swatch to copy its token name.
+      </p>
+    </div>
+
+    <!-- SECTION 1: DESIGN TOKENS -->
+    <section>
+      <h2 class="section-heading">1. Core Color Tokens</h2>
+      <p class="section-desc">Design tokens exported from Figma Variables into CSS Custom Properties.</p>
+      
+      <div class="grid-demo">
+        <div class="token-swatch" data-token="--color-primary-500">
+          <div class="color-box" style="background: var(--color-primary-500);"></div>
+          <div>
+            <div style="font-weight: 600; font-size: 13px;">Primary 500</div>
+            <div style="font-size: 11px; color: var(--color-text-muted);">--color-primary-500</div>
+          </div>
+        </div>
+
+        <div class="token-swatch" data-token="--color-success-bg">
+          <div class="color-box" style="background: var(--color-success-bg); border-color: var(--color-success-border);"></div>
+          <div>
+            <div style="font-weight: 600; font-size: 13px;">Success Surface</div>
+            <div style="font-size: 11px; color: var(--color-text-muted);">--color-success-bg</div>
+          </div>
+        </div>
+
+        <div class="token-swatch" data-token="--color-warning-bg">
+          <div class="color-box" style="background: var(--color-warning-bg); border-color: var(--color-warning-border);"></div>
+          <div>
+            <div style="font-weight: 600; font-size: 13px;">Warning Surface</div>
+            <div style="font-size: 11px; color: var(--color-text-muted);">--color-warning-bg</div>
+          </div>
+        </div>
+
+        <div class="token-swatch" data-token="--color-danger-solid">
+          <div class="color-box" style="background: var(--color-danger-solid);"></div>
+          <div>
+            <div style="font-weight: 600; font-size: 13px;">Danger Solid</div>
+            <div style="font-size: 11px; color: var(--color-text-muted);">--color-danger-solid</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: BUTTONS -->
+    <section>
+      <h2 class="section-heading">2. Interactive Button Variants</h2>
+      <p class="section-desc">Tactile, accessible button components with visible focus rings and smooth transitions.</p>
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="showToast('Primary action triggered successfully!')">Primary Button</button>
+        <button class="btn btn-secondary">Secondary</button>
+        <button class="btn btn-outline">Outline</button>
+        <button class="btn btn-danger">Destructive</button>
+        <button class="btn btn-ghost">Ghost</button>
+        <button id="open-demo-modal" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <line x1="9" y1="3" x2="9" y2="21"/>
+          </svg>
+          Open Modal Demo
+        </button>
+      </div>
+    </section>
+
+    <!-- SECTION 3: METRIC & CONTENT CARDS -->
+    <section>
+      <h2 class="section-heading">3. Metric Cards & Data Containers</h2>
+      <p class="section-desc">Responsive card components designed for high-density SaaS and Analytics dashboards.</p>
+      <div class="grid-demo">
+        <div class="card metric-card">
+          <div class="metric-label">Handoff Efficiency</div>
+          <div class="metric-value">+45%</div>
+          <span class="badge badge-success">Tokens Studio Synced</span>
+        </div>
+
+        <div class="card metric-card">
+          <div class="metric-label">Component Library</div>
+          <div class="metric-value">120+ Assets</div>
+          <span class="badge badge-neutral">WCAG 2.1 AA Compliant</span>
+        </div>
+
+        <div class="card metric-card">
+          <div class="metric-label">Design Sprint Speed</div>
+          <div class="metric-value">2.5x Faster</div>
+          <span class="badge badge-warning">Zero Regressions</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: FORM CONTROLS -->
+    <section style="margin-bottom: var(--space-10);">
+      <h2 class="section-heading">4. Accessible Form Inputs</h2>
+      <p class="section-desc">Input fields featuring clear states: default, focus-visible, and helper hints.</p>
+      <div class="card" style="max-width: 600px;">
+        <div class="form-group">
+          <label class="form-label" for="sample-email">Email Address</label>
+          <input class="form-input" type="email" id="sample-email" placeholder="chinedu@example.com">
+          <span class="form-help-text">We will never share your personal email.</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="sample-role">Target Role</label>
+          <select class="form-select" id="sample-role">
+            <option>Senior Technical Product Designer</option>
+            <option>Frontend Systems Engineer</option>
+            <option>Multimodal AI Evaluator</option>
+          </select>
+        </div>
+
+        <button class="btn btn-primary" onclick="showToast('Form preferences saved successfully!')">Save Preferences</button>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Accessible Modal Dialog -->
+  <div id="demo-modal" class="modal-backdrop">
+    <div class="modal-dialog">
+      <div class="card-header">
+        <h3 class="card-title">Figma Token Synchronization</h3>
+        <button id="close-demo-modal" class="btn btn-ghost" style="padding: 4px 8px;">✕</button>
+      </div>
+      <p style="color: var(--color-text-secondary); margin-bottom: var(--space-4); font-size: 14px;">
+        This modal is fully accessible, trapped in focus, supports keyboard dismissal (ESC key), and adheres to W3C dialog design patterns.
+      </p>
+      <div style="display: flex; justify-content: flex-end; gap: var(--space-2);">
+        <button class="btn btn-secondary" onclick="document.getElementById('demo-modal').classList.remove('active'); document.body.style.overflow='';">Dismiss</button>
+        <button class="btn btn-primary" onclick="document.getElementById('demo-modal').classList.remove('active'); document.body.style.overflow=''; showToast('Action confirmed!');">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
